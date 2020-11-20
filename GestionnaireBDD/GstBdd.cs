@@ -67,8 +67,10 @@ namespace GestionnaireBDD
 
         public void SupprimerActionAcheter(int numAction, int numTrader)
         {
-   
-            
+            cmd = new MySqlCommand("DELETE FROM acheter WHERE numAction = ("+numAction+") AND numTrader =("+numTrader+")", cnx);
+            dr = cmd.ExecuteReader();
+
+
         }
 
         public void UpdateQuantite(int numAction, int numTrader, int quantite)
@@ -78,6 +80,9 @@ namespace GestionnaireBDD
 
         public double getCoursReel(int numAction)
         {
+            cmd = new MySqlCommand("Select coursReel from action where numAction = "+numAction, cnx);
+            dr = cmd.ExecuteReader();
+
             return 0;
         }
         public void AcheterAction(int numAction, int numTrader, double prix, int quantite)

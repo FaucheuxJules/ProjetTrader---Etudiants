@@ -49,6 +49,10 @@ namespace WPFTrader
 
         private void btnVendre_Click(object sender, RoutedEventArgs e)
         {
+            if (lstActions.SelectedItem != null)
+            {
+                lstActions.ItemsSource = gestioBdd.SupprimerActionAcheter((lstActions.SelectedItem as ActionPerso).NumAction);
+            }
 
         }
 
